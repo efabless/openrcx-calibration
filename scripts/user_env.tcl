@@ -21,7 +21,7 @@ set PROCESS_NODE 130
 
 # Process corner
 # NEEDS to be changed for different corners.
-set CORNER RCmax
+set CORNER RCtyp
 
 # The file name and location of the custom RC tech file
 # The name is subject to change
