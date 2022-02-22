@@ -115,9 +115,9 @@ def convert_file(in_file, out_file):
 
         for net, netprops in portdict.items():
             netprops[0] = i
-            i = i + 2
             print('*' + str(i) + ' ' + net, file=ofile)
             print('*' + str(i + 1) + ' ' + net + '_BL', file=ofile)
+            i = i + 2
 
         # Now output the entry for each net
         for net, netprops in portdict.items():
