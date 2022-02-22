@@ -13,17 +13,14 @@
 #
 ##################################################
 
-source ./scripts/user_env.tcl
-
-read_lef $TECH_LEF
+read_lef $env(TECH_LEF)
 
 # Read the patterns design
-read_def $ext_dir/patterns.def
+read_def $env(EXT_DIR)/patterns.def
 
-# Read the parasitics of the patterns
-bench_read_spef $golden_spef
+bench_read_spef $env(REF_SPEF)
 
 # Convert the parasitics into 
-write_rules -file $extRules -db
+write_rules -file $env(EXT_RULES) -db
 
 exit

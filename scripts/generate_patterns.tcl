@@ -7,19 +7,16 @@
 #         patterns.v
 #################################################
 
-source ./scripts/user_env.tcl
-
 
 # Read Technology LEF
-read_lef $TECH_LEF
+read_lef $env(TECH_LEF)
 
 # Creates the patterns and store it in the database
- bench_wires -len 10  -cnt 5 -all
-#bench_wires -len 100 -cnt 5 -all
+ bench_wires -len 100  -cnt 5 -all
 
 # Writes the verilog netlist of the patterns
-bench_verilog $ext_dir/patterns.v
+bench_verilog $env(EXT_DIR)/patterns.v
 
-write_def $ext_dir/patterns.def
+write_def $env(EXT_DIR)/patterns.def
 
 exit

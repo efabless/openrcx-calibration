@@ -6,5 +6,5 @@ This repository includes data and methods used to generate OpenRCX technology fi
 ```
 git clone https://github.com/efabless/openrcx-calibration.git
 cd openrcx-calibration
-./run.sh
+./calibrate-magic.sh
 ```

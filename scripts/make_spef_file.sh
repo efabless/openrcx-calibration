@@ -33,8 +33,8 @@ fi
 #
 # These values can be overridden from the environment
 #
-export PDK_ROOT=${PDK_ROOT:=/usr/share/pdk}
-export PDK=${PDK:=sky130B}
+export PDK_ROOT=${PDK_ROOT:=/foss/pdk}
+export PDK=${PDK:=sky130A}
 export PDK_PATH=${PDK_ROOT}/${PDK}
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
