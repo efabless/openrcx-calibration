@@ -1,17 +1,16 @@
 #!/bin/sh
 
-
-export CORNER=$1
+export PDK=$1
+export CORNER=$2
 export SCRIPTS_DIR=./scripts
 export REF_EXTRATOR=spef_extractor
-export TECH_LEF=./tech/sky130_fd_sc_hd.$CORNER.tlef
+export TECH_LEF=./tech/$PDK/sky130_fd_sc_hd.$CORNER.tlef
 export EXT_DIR=./openrcx-$REF_EXTRATOR
-export REF_SPEF=$EXT_DIR/patterns.$REF_EXTRATOR.$CORNER.spef
-export EXT_RULES=$EXT_DIR/rules/openrcx.$CORNER.rules.$REF_EXTRATOR
+export REF_SPEF=$EXT_DIR/patterns.$PDK.$CORNER.$REF_EXTRATOR.spef
+export EXT_RULES=$EXT_DIR/rules/$PDK/rules.$PDK.$CORNER.openrcx.$REF_EXTRATOR
 
-mkdir -p $EXT_DIR/rules
+mkdir -p $EXT_DIR/rules/$PDK
 
-#export OPENLANE_TOOLS=/foss/tools/openlane_tools/2022.02.08_01.48.52
 export OPENLANE_TOOLS=/foss/tools/openlane_tools
 
 $OPENLANE_TOOLS/bin/openroad $SCRIPTS_DIR/generate_patterns.tcl 
@@ -27,6 +26,6 @@ $OPENLANE_TOOLS/bin/openroad $SCRIPTS_DIR/generate_rules.tcl
 
 $OPENLANE_TOOLS/bin/openroad $SCRIPTS_DIR/extract_patterns.tcl 
 
-mv ./diff_spef.out $EXT_DIR/diff-spef-openrcx-$REF_EXTRATOR.$CORNER.out
-mv ./diff_spef.log $EXT_DIR/diff-spef-openrcx-$REF_EXTRATOR.$CORNER.log
+mv ./diff_spef.out $EXT_DIR/diff-spef.openrcx.$PDK.$CORNER.$REF_EXTRATOR.out
+mv ./diff_spef.log $EXT_DIR/diff-spef.openrcx.$PDK.$CORNER.$REF_EXTRATOR.log
 
