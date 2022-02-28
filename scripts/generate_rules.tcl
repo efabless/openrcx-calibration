@@ -21,6 +21,6 @@ read_def $env(EXT_DIR)/patterns.def
 bench_read_spef $env(REF_SPEF)
 
 # Convert the parasitics into 
-write_rules -file $env(EXT_RULES) -db
+write_rules -file $env(EXT_DIR)/$env(PDK)/rules.openrcx.$env(PDK).$env(CORNER).$env(REF_EXTRACTOR) -db
 
 exit

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.10
 #
 # ext2spef.py --- Special-purpose application that reads a .ext file
 # from a metal test layout for openrcx extracted by magic, and writes
@@ -96,17 +96,22 @@ def convert_file(in_file, out_file):
         name = os.path.split(in_file)[0]
         print('*SPEF "IEEE 1481-1998"', file=ofile)
         print('*DESIGN "' + name + '"', file=ofile)
+        print('*DATE "11:11:11 Fri 11 11, 1111"', file=ofile)
         print('*VENDOR "Efabless, Inc."', file=ofile)
         print('*PROGRAM "ext2spef.py"', file=ofile)
         print('*VERSION "1.0"', file=ofile)
+        print('*DESIGN_FLOW "Magic VLSI"', file=ofile)
         print('*DIVIDER /', file=ofile)
         print('*DELIMITER :', file=ofile)
         print('*BUS_DELIMITER []', file=ofile)
+        print('*T_UNIT 1.00000 NS', file=ofile)
         print('*C_UNIT 1.00000 FF', file=ofile)
         print('*R_UNIT 1.00000 OHM', file=ofile)
+        print('*L_UNIT 1.00000 HENRY', file=ofile)
         print('', file=ofile)
         print('', file=ofile)
         print('*NAME_MAP', file=ofile)
+
 
         # Set all of the net index abbreviations
         i = 0
