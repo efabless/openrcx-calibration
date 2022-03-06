@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export IMAGE_NAME=efabless/foss-asic-tools:epsilon
+export IMAGE_NAME=efabless/foss-asic-tools:theta
 
 docker pull $IMAGE_NAME
 

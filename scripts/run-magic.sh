@@ -2,9 +2,11 @@
 
 export PDK=$1
 export CORNER=$2
+export PDK_ROOT=${PDK_ROOT:=/foss/pdk}
 export SCRIPTS_DIR=$(pwd)/scripts
 export REF_EXTRACTOR=magic
-export TECH_LEF=$(pwd)/tech/$PDK/sky130_fd_sc_hd.$CORNER.tlef
+export TECH_LEF=$PDK_ROOT/$PDK/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__$CORNER.tlef
+#export TECH_LEF=$(pwd)/tech/$PDK/sky130_fd_sc_hd__$CORNER.tlef
 export EXT_DIR=$(pwd)/openrcx-$REF_EXTRACTOR
 export REF_SPEF=$EXT_DIR/blk.$PDK.$CORNER.spef
 export EXT_RULES=$EXT_DIR/$PDK/rules.openrcx.$PDK.$CORNER.$REF_EXTRACTOR
@@ -21,9 +23,6 @@ $OPENLANE_TOOLS/bin/openroad $SCRIPTS_DIR/generate_patterns.tcl
 \mv rulesGen.log $EXT_DIR
 
 $SCRIPTS_DIR/make_spef_file.sh $EXT_DIR/patterns.def $CORNER
-
-
-
 
 $OPENLANE_TOOLS/bin/openroad $SCRIPTS_DIR/generate_rules.tcl 
 

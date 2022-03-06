@@ -36,13 +36,13 @@ fi
 export PDK_ROOT=${PDK_ROOT:=/foss/pdk}
 export PDK=${PDK:=sky130A}
 export PDK_PATH=${PDK_ROOT}/${PDK}
-export EXT_DIR=./openrcx-magic
+export EXT_DIR=${EXT_DIR:=./openrcx-magic}
 mkdir -p $EXT_DIR
 
-export MAGIC=/foss/tools/magic/3d41b3e98bc08939588d6e8ec0699c7870f6aeba/bin/magic
+export MAGIC=/foss/tools/bin/magic
 
 
-export TECH_LEF=./tech/$PDK/sky130_fd_sc_hd.$2.tlef
+#export TECH_LEF=${TECH_LEF:=$PDK_PATH/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__$CORNER.tlef}
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
