@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export IMAGE_NAME=efabless/foss-asic-tools:theta
+export IMAGE_NAME=efabless/foss-asic-tools:eta
 docker pull $IMAGE_NAME
 
 export PDK=sky130A
